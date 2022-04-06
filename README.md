@@ -24,7 +24,7 @@ Level 2 specifications +:
 
 ### Level 4
 Level 3 specifications +:
-* demonstration of method with parameters and a return value.  i.e methods such that given dimensions of an object, returns the x value  or y value for the object to be drawn in the middle of the screen.
+* demonstration of method with parameters and a return value.  i.e methods such that given dimensions of an object, returns the x value or y value for the object to be drawn in the middle of the screen.
 
 
 
