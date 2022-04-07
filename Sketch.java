@@ -23,36 +23,56 @@ public class Sketch extends PApplet {
    * Called repeatedly, anything drawn to the screen goes here
    */
   public void draw() {
-	  
 	// sample code, delete this stuff
-    
-    drawBamboo(100,100);
-    drawPanda(600, 600);
-    
+    drawBamboo(100,100, 600, 20);
+    drawBamboo(125, 125, 600, 20);
+    drawPanda(700, 100, 1, 255, 255, 255);
   }
   
   // define other methods down here.
 
-  void drawBamboo(float bambooX, float bambooY){
+  void drawBamboo(float bambooX, float bambooY, float bambooHeight, float bambooWidth){
+    /**
+     * Draws background bamboo
+     * 
+     * @param bambooX: X coordinate of bamboo
+     * @param bambooY: Y Coordinate of bamboo
+     * 
+     */
     fill(8, 133, 68);
-    for (int i = 0; i < 6; i ++){
-      rect(bambooX + 120*i, bambooY, 45, 600);
+    for (int i = 0; i < 1; i ++){
+      rect(bambooX, bambooY, bambooWidth, bambooHeight);
       for (int x = 0; x < 6; x++){
-        line(bambooX + 120 * i, bambooY + x * 100, bambooX + 120 * i + 45, bambooY + x * 100);
+        line(bambooX, bambooY + x * bambooHeight / 5, bambooX + bambooWidth, bambooY + x * bambooHeight / 5);
       }
     }
   }
 
-  void drawPanda(float pandaX, float pandaY) {
+  void drawPanda(float pandaX, float pandaY, float size, float colorOne, float colorTwo, float colorThree) {
+
+    /**
+     * Draws a panda
+     * 
+     * @param pandaX: x coordinate of panda
+     * @param pandaY: y coordinate of panda
+     * @param size: size of panda
+     * @param colorOne: first value of RGB spectrum
+     * @param colorTwo: second value of RGB spectrum
+     * @param colorThree: third value of RGB spectrum
+     * 
+     */
 
     strokeWeight(4);
+    pandaX = posX(pandaX);
+    pandaY = posY(pandaY);
+
     // Draw Ears
     fill(0,0,0);
     arc(pandaX - 125, pandaY - 120, 200, 200, radians(135), radians(320), OPEN);
     arc(pandaX + 125, pandaY - 120, 200, 200, radians(220), radians(405), OPEN);
     
-    // 
-    fill(255,255,255);
+    // Draw Panda Face
+    fill(colorOne,colorTwo,colorThree);
     ellipse(pandaX, pandaY, 450, 375); 
     
     // Draw Panda Eyes
@@ -78,21 +98,39 @@ public class Sketch extends PApplet {
     arc(pandaX + 25, pandaY + 105, 50, 40, radians(45), radians(180));
 
   }
-/*
-  public void time(float timeRN) {
-    if (timeRN < 1200 && timeRN > 600){
-      return 0;
-    }
-    if (timeRN > 1200 && timeRN < 1800){
-      return 1;
-    }
-    if (timeRN > 1800 && timeRN < 2400){
-      return 2;
-    }
-    if (timeRN > 0 && timeRN< 600){
-      return 3;
-    }
-*/
 
+  public float posX(float positionX) {
+    /**
+     * 
+     * keeps panda on the screen
+     * param @param positionX: given x coordinate of Panda face
+     * return: return an x coordinate that will keep the panda face on the screen
+     * 
+     */
 
+    if (positionX + 225 > width){
+      return positionX + (width - positionX - 225);
+    }
+    if (positionX - 225 < 0){
+      return positionX + (0 - positionX + 225);
+    }
+    return positionX;
   }
+  public float posY(float positionY) {
+    /**
+     * 
+     * keeps panda on the screen
+     * param @param positionY: given x coordinate of Panda face
+     * return: return an Y coordinate that will keep the panda face on the screen
+     * 
+     */
+    
+    if (positionY + 225 > height ){
+      return positionY + (height - positionY - 225);
+    }
+    if (positionY - 235 < 0 ){
+      return positionY + (0 - positionY + 235);
+    }
+    return positionY;
+  }
+}
