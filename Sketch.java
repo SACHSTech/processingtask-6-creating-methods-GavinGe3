@@ -27,6 +27,7 @@ public class Sketch extends PApplet {
     drawBamboo(100,100, 600, 20);
     drawBamboo(125, 125, 600, 20);
     drawPanda(700, 100, 1, 255, 255, 255);
+    drawPanda
   }
   
   // define other methods down here.
@@ -48,7 +49,7 @@ public class Sketch extends PApplet {
     }
   }
 
-  void drawPanda(float pandaX, float pandaY, float size, float colorOne, float colorTwo, float colorThree) {
+  void drawPanda(float pandaX, float pandaY, float colorOne, float colorTwo, float colorThree) {
 
     /**
      * Draws a panda
@@ -124,7 +125,7 @@ public class Sketch extends PApplet {
      * return: return an Y coordinate that will keep the panda face on the screen
      * 
      */
-    
+
     if (positionY + 225 > height ){
       return positionY + (height - positionY - 225);
     }
