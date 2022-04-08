@@ -3,11 +3,14 @@ import processing.core.PApplet;
 public class Sketch extends PApplet {
 	
 	
-  /**
-   * Called once at the beginning of execution, put your size all in this method
-   */
+  
   public void settings() {
-	// put your size call here
+  
+	/**
+   * 
+   * Sets the window size
+   * 
+   */
     size(800, 800);
   }
 
@@ -16,18 +19,29 @@ public class Sketch extends PApplet {
    * values here i.e background, stroke, fill etc.
    */
   public void setup() {
+    /**
+     * 
+     * Sets up the background color
+     * 
+     */
+
+
     background(210, 255, 173);
   }
 
-  /**
-   * Called repeatedly, anything drawn to the screen goes here
-   */
+ 
   public void draw() {
-	// sample code, delete this stuff
+    /**
+    * 
+    * Draws objects to the screen
+    * 
+    */
     drawBamboo(100,100, 600, 20);
     drawBamboo(125, 125, 600, 20);
-    drawPanda(700, 100, 1, 255, 255, 255);
-    drawPanda
+    drawPanda(100, 100, 33, 78, 123, (float) 1.5);
+    //drawPanda(300, 100, 33, 78, 123, 1);
+    //drawPanda(500, 500, 33, 78, 123, 1);
+
   }
   
   // define other methods down here.
@@ -38,6 +52,8 @@ public class Sketch extends PApplet {
      * 
      * @param bambooX: X coordinate of bamboo
      * @param bambooY: Y Coordinate of bamboo
+     * @param babmooHeight: float for height of bamboo
+     * @param bambooWidth: float for width of bamboo
      * 
      */
     fill(8, 133, 68);
@@ -49,58 +65,58 @@ public class Sketch extends PApplet {
     }
   }
 
-  void drawPanda(float pandaX, float pandaY, float colorOne, float colorTwo, float colorThree) {
+  void drawPanda(float pandaX, float pandaY, float colorOne, float colorTwo, float colorThree, float size) {
 
     /**
      * Draws a panda
      * 
      * @param pandaX: x coordinate of panda
      * @param pandaY: y coordinate of panda
-     * @param size: size of panda
      * @param colorOne: first value of RGB spectrum
      * @param colorTwo: second value of RGB spectrum
      * @param colorThree: third value of RGB spectrum
+     * @param size: Size of panda in terms of 1 (1.25 is 25% larger)
      * 
      */
 
     strokeWeight(4);
-    pandaX = posX(pandaX);
-    pandaY = posY(pandaY);
+    pandaX = posX(pandaX, size);
+    pandaY = posY(pandaY, size);
 
     // Draw Ears
     fill(0,0,0);
-    arc(pandaX - 125, pandaY - 120, 200, 200, radians(135), radians(320), OPEN);
-    arc(pandaX + 125, pandaY - 120, 200, 200, radians(220), radians(405), OPEN);
+    arc(pandaX - 125 * size, pandaY - 120 * size, 200 * size, 200 * size, radians(135), radians(320), OPEN);
+    arc(pandaX + 125 * size, pandaY - 120 * size, 200 * size, 200 * size, radians(220), radians(405), OPEN);
     
     // Draw Panda Face
     fill(colorOne,colorTwo,colorThree);
-    ellipse(pandaX, pandaY, 450, 375); 
+    ellipse(pandaX, pandaY, 450 * size, 375 * size); 
     
     // Draw Panda Eyes
     fill(0,0,0);
-    arc(pandaX - 100, pandaY - 15, 150, 150, radians(149), radians(301), OPEN);
-    arc(pandaX - 125, pandaY - 40, 150, 150, radians(-32), radians(122), OPEN);
-    arc(pandaX + 100, pandaY - 15, 150, 150, radians(239), radians(391), OPEN);
-    arc(pandaX + 125, pandaY - 40, 150, 150, radians(58), radians(212), OPEN);
+    arc(pandaX - 100 * size, pandaY - 15 * size, 150 * size, 150 * size, radians(149), radians(301), OPEN);
+    arc(pandaX - 125 * size, pandaY - 40 * size, 150 * size, 150 * size, radians(-32), radians(122), OPEN);
+    arc(pandaX + 100 * size, pandaY - 15 * size, 150 * size, 150 * size, radians(239), radians(391), OPEN);
+    arc(pandaX + 125 * size, pandaY - 40 * size, 150 * size, 150 * size, radians(58), radians(212), OPEN);
 
     fill(255, 255, 255);
-    ellipse(pandaX - 90, pandaY - 48, 30, 30);
-    ellipse(pandaX + 90, pandaY - 48, 30, 30);
+    ellipse(pandaX - 90 * size, pandaY - 48 * size, 30 * size, 30 * size);
+    ellipse(pandaX + 90 * size, pandaY - 48 * size, 30 * size, 30 * size);
 
     // Draw panda nose
     fill(0, 0, 0);
-    ellipse(pandaX, pandaY + 75, 75, 40);
+    ellipse(pandaX, pandaY + 75, 75 * size, 40 * size);
     
     // Draw Panda "Whiskers"
     strokeWeight(8);
-    line(pandaX, pandaY + 75, pandaX, + pandaY + 105);
+    line(pandaX , pandaY + 75 * size, pandaX , + pandaY + 105 * size);
     noFill();
-    arc(pandaX - 25, pandaY + 105, 50, 40, 0, radians(135));
-    arc(pandaX + 25, pandaY + 105, 50, 40, radians(45), radians(180));
+    arc(pandaX - 25 * size, pandaY + 105 * size, 50 * size, 40 * size, 0, radians(135));
+    arc(pandaX + 25 * size, pandaY + 105 * size , 50 * size, 40 * size, radians(45), radians(180));
 
   }
 
-  public float posX(float positionX) {
+  public float posX(float positionX, float size) {
     /**
      * 
      * keeps panda on the screen
@@ -109,15 +125,15 @@ public class Sketch extends PApplet {
      * 
      */
 
-    if (positionX + 225 > width){
-      return positionX + (width - positionX - 225);
+    if (positionX + (225 * size) > width){
+      return positionX + (width - positionX - 225 * size);
     }
-    if (positionX - 225 < 0){
-      return positionX + (0 - positionX + 225);
+    if (positionX - 225 * size < 0){
+      return positionX + (0 - positionX + 225 * size);
     }
     return positionX;
   }
-  public float posY(float positionY) {
+  public float posY(float positionY, float size) {
     /**
      * 
      * keeps panda on the screen
@@ -126,11 +142,11 @@ public class Sketch extends PApplet {
      * 
      */
 
-    if (positionY + 225 > height ){
-      return positionY + (height - positionY - 225);
+    if (positionY + 215 * size  > height ){
+      return positionY + (height - positionY - 215 * size);
     }
-    if (positionY - 235 < 0 ){
-      return positionY + (0 - positionY + 235);
+    if (positionY - 225 * size < 0 ){
+      return positionY + (0 - positionY + 225 * size);
     }
     return positionY;
   }
