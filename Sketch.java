@@ -36,6 +36,10 @@ public class Sketch extends PApplet {
     * Draws objects to the screen
     * 
     */
+    for (int i = 1; i < 20; i++) {
+      drawBamboo(100 + 25* i, 100 + 25 * i, 600, 20);
+
+    }
     drawBamboo(100,100, 600, 20);
     drawBamboo(125, 125, 600, 20);
     drawPanda(100, 100, 33, 78, 123, (float) 1.5);
