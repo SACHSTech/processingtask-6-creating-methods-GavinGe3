@@ -6,7 +6,6 @@ import processing.core.PApplet;
 *
 */
 
-
 public class Sketch extends PApplet {
 	
   /**
@@ -46,7 +45,6 @@ public class Sketch extends PApplet {
     drawPanda(250, 250, 33, 78, 123, (float) 1.1);
     drawPanda(300, 100, 33, 78, 123, 1);
     drawPanda(500, 500, 33, 78, 123, 1);
-
   }
   
   // define other methods down here.
@@ -120,7 +118,6 @@ public class Sketch extends PApplet {
     noFill();
     arc(floatPandaX - 25 * floatPandaSize, floatPandaY + 105 * floatPandaSize, 50 * floatPandaSize, 40 * floatPandaSize, 0, radians(135));
     arc(floatPandaX + 25 * floatPandaSize, floatPandaY + 105 * floatPandaSize , 50 * floatPandaSize, 40 * floatPandaSize, radians(45), radians(180));
-
   }
 
   /**
