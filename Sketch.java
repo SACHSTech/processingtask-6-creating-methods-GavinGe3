@@ -39,13 +39,13 @@ public class Sketch extends PApplet {
   public void draw() {
     
     for (int i = 1; i < 20; i++) {
-      drawBamboo(100 + 25* i, 100 + 25 * i, 600, 20);
+      drawBamboo(0 + 35* i, 0 + 15 * i, 600, 20);
     }
     drawBamboo(100,100, 600, 20);
     drawBamboo(125, 125, 600, 20);
-    drawPanda(100, 100, 33, 78, 123, (float) 1.1);
-    //drawPanda(300, 100, 33, 78, 123, 1);
-    //drawPanda(500, 500, 33, 78, 123, 1);
+    drawPanda(250, 250, 33, 78, 123, (float) 1.1);
+    drawPanda(300, 100, 33, 78, 123, 1);
+    drawPanda(500, 500, 33, 78, 123, 1);
 
   }
   
@@ -54,19 +54,20 @@ public class Sketch extends PApplet {
   /**
      * Draws  bamboo
      * 
-     * @param bambooX  X coordinate of bamboo
-     * @param bambooY  Y Coordinate of bamboo
+     * @param floatBambooX  X coordinate of bamboo
+     * @param floatBambooY  Y Coordinate of bamboo
      * @param babmooHeight  float for height of bamboo
-     * @param bambooWidth  float for width of bamboo
+     * @param floatBambooWidth  float for width of bamboo
      * 
      */
-  void drawBamboo(float bambooX, float bambooY, float bambooHeight, float bambooWidth){
+  void drawBamboo(float floatBambooX, float floatBambooY, float floatBambooHeight, float floatBambooWidth){
     
     fill(8, 133, 68);
     for (int i = 0; i < 1; i ++){
-      rect(bambooX, bambooY, bambooWidth, bambooHeight);
+      // draw bamboo lines
+      rect(floatBambooX, floatBambooY, floatBambooWidth, floatBambooHeight);
       for (int x = 0; x < 6; x++){
-        line(bambooX, bambooY + x * bambooHeight / 5, bambooX + bambooWidth, bambooY + x * bambooHeight / 5);
+        line(floatBambooX, floatBambooY + x * floatBambooHeight / 5, floatBambooX + floatBambooWidth, floatBambooY + x * floatBambooHeight / 5);
       }
     }
   }
@@ -74,90 +75,90 @@ public class Sketch extends PApplet {
   /**
      * Draws a panda
      * 
-     * @param pandaX  x coordinate of panda
-     * @param pandaY  y coordinate of panda
+     * @param floatPandaX  x coordinate of panda
+     * @param floatPandaY  y coordinate of panda
      * @param colorOne  first value of RGB spectrum
      * @param colorTwo  second value of RGB spectrum
      * @param colorThree  third value of RGB spectrum
-     * @param pandaSize  Size of panda in terms of 1 (1.25 is 25% larger)
+     * @param floatPandaSize  Size of panda in terms of 1 (1.25 is 25% larger)
      * 
      */
-  void drawPanda(float pandaX, float pandaY, float pandaColorOne, float pandaColorTwo, float pandaColorThree, float pandaSize) {
+  void drawPanda(float floatPandaX, float floatPandaY, int intPandaColorOne, int intPandaColorTwo, int intPandaColorThree, float floatPandaSize) {
 
      // Use pos methods to determine x and y coordinates so panda will be drawn on screen
     strokeWeight(4);
-    pandaX = posX(pandaX, pandaSize);
-    pandaY = posY(pandaY, pandaSize);
+    floatPandaX = posX(floatPandaX, floatPandaSize);
+    floatPandaY = posY(floatPandaY, floatPandaSize);
 
     // Draw Ears
     fill(0,0,0);
-    arc(pandaX - 125 * pandaSize, pandaY - 120 * pandaSize, 200 * pandaSize, 200 * pandaSize, radians(135), radians(320), OPEN);
-    arc(pandaX + 125 * pandaSize, pandaY - 120 * pandaSize, 200 * pandaSize, 200 * pandaSize, radians(220), radians(405), OPEN);
+    arc(floatPandaX - 125 * floatPandaSize, floatPandaY - 120 * floatPandaSize, 200 * floatPandaSize, 200 * floatPandaSize, radians(135), radians(320), OPEN);
+    arc(floatPandaX + 125 * floatPandaSize, floatPandaY - 120 * floatPandaSize, 200 * floatPandaSize, 200 * floatPandaSize, radians(220), radians(405), OPEN);
     
     // Draw Panda Face
-    fill(pandaColorOne, pandaColorTwo, pandaColorThree);
-    ellipse(pandaX, pandaY, 450 * pandaSize, 375 * pandaSize); 
+    fill(intPandaColorOne, intPandaColorTwo, intPandaColorThree);
+    ellipse(floatPandaX, floatPandaY, 450 * floatPandaSize, 375 * floatPandaSize); 
     
     // Draw Panda Eyes
     fill(0,0,0);
-    arc(pandaX - 100 * pandaSize, pandaY - 15 * pandaSize, 150 * pandaSize, 150 * pandaSize, radians(149), radians(301), OPEN);
-    arc(pandaX - 125 * pandaSize, pandaY - 40 * pandaSize, 150 * pandaSize, 150 * pandaSize, radians(-32), radians(122), OPEN);
-    arc(pandaX + 100 * pandaSize, pandaY - 15 * pandaSize, 150 * pandaSize, 150 * pandaSize, radians(239), radians(391), OPEN);
-    arc(pandaX + 125 * pandaSize, pandaY - 40 * pandaSize, 150 * pandaSize, 150 * pandaSize, radians(58), radians(212), OPEN);
+    arc(floatPandaX - 100 * floatPandaSize, floatPandaY - 15 * floatPandaSize, 150 * floatPandaSize, 150 * floatPandaSize, radians(149), radians(301), OPEN);
+    arc(floatPandaX - 125 * floatPandaSize, floatPandaY - 40 * floatPandaSize, 150 * floatPandaSize, 150 * floatPandaSize, radians(-32), radians(122), OPEN);
+    arc(floatPandaX + 100 * floatPandaSize, floatPandaY - 15 * floatPandaSize, 150 * floatPandaSize, 150 * floatPandaSize, radians(239), radians(391), OPEN);
+    arc(floatPandaX + 125 * floatPandaSize, floatPandaY - 40 * floatPandaSize, 150 * floatPandaSize, 150 * floatPandaSize, radians(58), radians(212), OPEN);
 
     fill(255, 255, 255);
-    ellipse(pandaX - 90 * pandaSize, pandaY - 48 * pandaSize, 30 * pandaSize, 30 * pandaSize);
-    ellipse(pandaX + 90 * pandaSize, pandaY - 48 * pandaSize, 30 * pandaSize, 30 * pandaSize);
+    ellipse(floatPandaX - 90 * floatPandaSize, floatPandaY - 48 * floatPandaSize, 30 * floatPandaSize, 30 * floatPandaSize);
+    ellipse(floatPandaX + 90 * floatPandaSize, floatPandaY - 48 * floatPandaSize, 30 * floatPandaSize, 30 * floatPandaSize);
 
     // Draw panda nose
     fill(0, 0, 0);
-    ellipse(pandaX, pandaY + 75, 75 * pandaSize, 40 * pandaSize);
+    ellipse(floatPandaX, floatPandaY + 75, 75 * floatPandaSize, 40 * floatPandaSize);
     
     // Draw Panda "Whiskers"
     strokeWeight(8);
-    line(pandaX , pandaY + 75 * pandaSize, pandaX , + pandaY + 105 * pandaSize);
+    line(floatPandaX , floatPandaY + 75 * floatPandaSize, floatPandaX , + floatPandaY + 105 * floatPandaSize);
     noFill();
-    arc(pandaX - 25 * pandaSize, pandaY + 105 * pandaSize, 50 * pandaSize, 40 * pandaSize, 0, radians(135));
-    arc(pandaX + 25 * pandaSize, pandaY + 105 * pandaSize , 50 * pandaSize, 40 * pandaSize, radians(45), radians(180));
+    arc(floatPandaX - 25 * floatPandaSize, floatPandaY + 105 * floatPandaSize, 50 * floatPandaSize, 40 * floatPandaSize, 0, radians(135));
+    arc(floatPandaX + 25 * floatPandaSize, floatPandaY + 105 * floatPandaSize , 50 * floatPandaSize, 40 * floatPandaSize, radians(45), radians(180));
 
   }
 
   /**
      * 
      * keeps panda on the screen
-     * @param positionX  given x coordinate of Panda face
-     * @param pandaSize  given pandaSize values for Panda face
+     * @param floatPositionX  given x coordinate of Panda face
+     * @param floatPandaSize  given floatPandaSize values for Panda face
      * @return return an x coordinate that will keep the panda face on the screen
      * 
      */
-  public float posX(float positionX, float pandaSize) {
+  public float posX(float floatPositionX, float floatPandaSize) {
     
-    if (positionX + (225 * pandaSize) > width){
-      return positionX + (width - positionX - 225 * pandaSize);
+    if (floatPositionX + (225 * floatPandaSize) > width){
+      return floatPositionX + (width - floatPositionX - 225 * floatPandaSize);
     }
-    if (positionX - 225 * pandaSize < 0){
-      return positionX + (0 - positionX + 225 * pandaSize);
+    if (floatPositionX - 225 * floatPandaSize < 0){
+      return floatPositionX + (0 - floatPositionX + 225 * floatPandaSize);
     }
-    return positionX;
+    return floatPositionX;
   }
 
   /**
      * 
      * keeps panda on the screen
      * 
-     * @param positionY  given x coordinate of Panda face
-     * @param pandaSize  given pandaSize values for Panda face
+     * @param floatPositionY  given x coordinate of Panda face
+     * @param floatPandaSize  given floatPandaSize values for Panda face
      * @return return an Y coordinate that will keep the panda face on the screen
      * 
      */
-  public float posY(float positionY, float pandaSize) {
+  public float posY(float floatPositionY, float floatPandaSize) {
     
-    if (positionY + 215 * pandaSize  > height ){
-      return positionY + (height - positionY - 215 * pandaSize);
+    if (floatPositionY + 215 * floatPandaSize  > height ){
+      return floatPositionY + (height - floatPositionY - 215 * floatPandaSize);
     }
-    if (positionY - 225 * pandaSize < 0 ){
-      return positionY + (0 - positionY + 225 * pandaSize);
+    if (floatPositionY - 225 * floatPandaSize < 0 ){
+      return floatPositionY + (0 - floatPositionY + 225 * floatPandaSize);
     }
-    return positionY;
+    return floatPositionY;
   }
 }
